@@ -1,0 +1,15 @@
+/* Empty. Add your own CSS if you like */
+
+.complete {
+    color: #4CAF50;
+    text-decoration: line-through;
+}
+
+.archived {
+    display: none;
+}
+
+.todo-complete {
+    margin-left: 20px;
+    cursor: pointer;
+}
