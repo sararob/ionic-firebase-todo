@@ -16,7 +16,7 @@ angular.module('starter', ['ionic', 'firebase'])
   $scope.projects = Projects;
   $scope.tasks = Tasks;
 
-  var ref = new Firebase("https://croissants.firebaseio.com/projects/last_active");
+  var ref = new Firebase("https://croissants.firebaseio.com/last_active");
   ref.once('value', function(snap) {
     var activeId = snap.val();
     Projects.$loaded().then(function(data) {
@@ -30,7 +30,6 @@ angular.module('starter', ['ionic', 'firebase'])
 
   var createProject = function(projectTitle) {
     $scope.projects.$add({'title': projectTitle});
-    // $scope.selectProject(newProject, $scope.projects.length-1);
   };
 
   $scope.newProject = function() {
@@ -42,7 +41,7 @@ angular.module('starter', ['ionic', 'firebase'])
 
   $scope.selectProject = function(project) {
     $scope.activeProject = project;
-    var ref = new Firebase("https://croissants.firebaseio.com/projects/last_active");
+    var ref = new Firebase("https://croissants.firebaseio.com/last_active");
     ref.set(project.$id);
     $ionicSideMenuDelegate.toggleLeft(false);
   };
